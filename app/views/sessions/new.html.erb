@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h2>Sign in</h2>
+</div>
+
+<div class="row">
+  <div class="span10">
+
+  <% flash.each do |key, msg| %>
+  <div class="alert-message <%= key %>">
+    <a href="#" class="close">x</a>
+    <p><%= msg %></p>
+  </div>
+  <% end %>
+
+  <%= form_tag sessions_path(), :html => { :class => "form-stacked" } do %>
+    <div class="clearfix">
+      <%= label_tag :email %>
+      <div class="input"><%= email_field_tag :email %></div>
+    </div>
+
+    <div class="clearfix">
+      <%= label_tag :password %>
+      <div class="input"><%= password_field_tag :password %></div>
+    </div>
+
+    <div class="clearfix">
+      <div class="input">
+        <label>
+          <%= check_box_tag :remember_me %>
+          Remember me
+        </label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Log in", :class => "btn primary" %>
+    </div>
+  <% end %>
+
+  No account? <%= link_to "Sign up", signup_path() %><br />
+  </div>
+</div>
+
